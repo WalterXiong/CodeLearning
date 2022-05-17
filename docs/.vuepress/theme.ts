@@ -17,7 +17,7 @@ export default hopeTheme({
   repo: "https://github.com/WalterXiong/CodeLearning",
 
   //docsDir: "demo/src",
-  docsDir: "/docs",
+  docsDir: "docs",
 
   // navbar
   navbar: navbar,
