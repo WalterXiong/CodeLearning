@@ -8,7 +8,7 @@ export default defineUserConfig({
 
   base: "/CodeLearning/",
 
-  dest: "docs/.vuepress/dist",
+  //dest: "docs/.vuepress/dist",
 
   head: [
     [
