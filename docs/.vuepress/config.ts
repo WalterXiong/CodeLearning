@@ -6,7 +6,7 @@ export default defineUserConfig({
   title: "CodeLearning",
   description: "This is a learning project",
 
-  base: "/CodeLearing/",
+  base: "/",
 
   head: [
     [
