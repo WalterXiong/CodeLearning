@@ -14,7 +14,7 @@ export default hopeTheme({
 
   logo: "/logo.svg",
 
-  repo: "vuepress-theme-hope/vuepress-theme-hope",
+  repo: "https://github.com/WalterXiong/CodeLearning",
 
   //docsDir: "demo/src",
   docsDir: "docs",
