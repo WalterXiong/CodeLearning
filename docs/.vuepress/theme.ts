@@ -37,7 +37,7 @@ export default hopeTheme({
   // 主题颜色选项
   themeColor: false,
 
-  darkmode: "auto",
+  //darkmode: "auto",
 
   // 纯净模式
   pure: true,
