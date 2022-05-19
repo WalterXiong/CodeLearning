@@ -43,7 +43,7 @@ export default sidebar({
           icon: "back-stage",
           prefix: "jvm/",
           collapsable: true,
-          children: "structure",
+          children: ["jvm-memoryarea"],
         },
         {
           text: "新特性",
