@@ -5,3 +5,4 @@ docs/.vuepress/.temp/
 docs/.vuepress/dist/
 pnpm-lock.yaml
 package-lock.json
+.DS_Store
