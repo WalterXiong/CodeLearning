@@ -1,0 +1,1 @@
+import{_ as e}from"./plugin-vue_export-helper.21dcd24c.js";import{o as t,c as o,a,d as _}from"./app.2787dceb.js";const r={},s={id:"jvm",tabindex:"-1"},c=a("a",{class:"header-anchor",href:"#jvm","aria-hidden":"true"},"#",-1),n=_(" jvm"),d=[c,n];function i(h,m){return t(),o("h1",s,d)}var p=e(r,[["render",i],["__file","README_.html.vue"]]);export{p as default};
