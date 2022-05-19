@@ -1,1 +1,0 @@
-import{_ as e}from"./plugin-vue_export-helper.21dcd24c.js";import{c as t,o as a,a as r,d as o}from"./app.420d6e4d.js";const s={},c={id:"fream",tabindex:"-1"},_=r("a",{class:"header-anchor",href:"#fream","aria-hidden":"true"},"#",-1),n=o(" fream"),d=[_,n];function i(f,h){return a(),t("h1",c,d)}var x=e(s,[["render",i],["__file","index.html.vue"]]);export{x as default};
