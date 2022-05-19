@@ -1,4 +1,4 @@
-import { docsearchPlugin } from "@vuepress/plugin-docsearch";
+//import { docsearchPlugin } from "@vuepress/plugin-docsearch";
 import { searchPlugin } from "@vuepress/plugin-search";
 import { defineUserConfig } from "vuepress";
 import theme from "./theme";
@@ -21,7 +21,6 @@ export default defineUserConfig({
       },
     ],
   ],
-
 
   plugins: [
 
@@ -48,9 +47,6 @@ export default defineUserConfig({
         },
       },
     }),
-
-    
-
 
   ],
 
