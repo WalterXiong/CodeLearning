@@ -16,7 +16,7 @@ export default hopeTheme({
 
   repo: "https://github.com/WalterXiong/CodeLearning",
 
-  //docsDir: "demo/src",
+  // 放文件的目录
   docsDir: "docs",
 
   // navbar
@@ -37,14 +37,12 @@ export default hopeTheme({
   // 主题颜色选项
   themeColor: false,
 
-  //darkmode: "auto",
-
   // 纯净模式
   pure: true,
 
   blog: {
     description: "一个后端开发者",
-    intro: "/intro.html",
+    intro: "https://walterxiong.github.io/CodeLearning",
     medias: {
       Email:  "https://example.com",
       GitHub: "https://github.com/Pikapika-OvO?tab=repositories",
@@ -134,4 +132,5 @@ export default hopeTheme({
     // },
 
   },
+
 });
