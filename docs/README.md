@@ -7,11 +7,11 @@ heroText: CodeLearning
 tagline: 这是为了学（zhuang）习（bei）创建的文件夹
 actions:
   - text: 乌拉～ 🤯
-    link: /code/
+    link: /language/
     type: primary
 
   - text: 瞅一瞅 🤔
-    link: /code/
+    link: /language/
     type: secondary
 
 features:
