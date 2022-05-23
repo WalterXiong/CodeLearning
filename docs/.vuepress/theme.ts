@@ -7,7 +7,7 @@ export default hopeTheme({
 
   author: {
     name: "Mr.Walter",
-    url: "这里填写你部署完成之后的域名", // 部署完成之后的域名
+    url: "https://walterxiong.github.io/CodeLearning/", // 部署完成之后的域名
   },
 
   iconPrefix: "iconfont icon-",
@@ -42,7 +42,7 @@ export default hopeTheme({
 
   blog: {
     description: "一个后端开发者",
-    intro: "https://walterxiong.github.io/CodeLearning",
+    intro: "https://walterxiong.github.io/CodeLearning/",
     medias: {
       Email:  "https://example.com",
       GitHub: "https://github.com/Pikapika-OvO?tab=repositories",

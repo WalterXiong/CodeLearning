@@ -4,30 +4,30 @@ icon: home
 title: 主页
 heroImage: /logo.svg
 heroText: CodeLearning
-tagline: 这是为了学（zhuang）习（bei）创建的文件夹
+tagline: 完成谱面，华丽地拿下胜利吧！
 actions:
-  - text: 乌拉～ 🤯
+  - text: 无麦！🤔
     link: /language/
     type: primary
 
-  - text: 瞅一瞅 🤔
+  - text: 乌拉～ 🤯
     link: /language/
     type: secondary
 
 features:
   - title: Java
     icon: java
-    details: 这该死的群友《Java》 基础竟如此扎实！！！
+    details: 这该死的群友《Java》 基础竟如此扎实！
     link: /language/java
 
   - title: C#
     icon: mesh
-    details: 这该死的群友《语法糖》 基础竟如此扎实！！！
+    details: 这该死的群友《语法糖》 基础竟如此扎实！
     link: /language/csharp
 
   - title: 杂谈
     icon: markdown
-    details: 随便说点啥，没有就不说
+    details: 随便说点啥，没有就不说 🤓️
     link: /essay/
 
 copyright: false
