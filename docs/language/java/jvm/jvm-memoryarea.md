@@ -93,3 +93,78 @@ HotSpot 中对象头主要包含两类数据：
 
 ### 3. 对象的访问定位
 
+
+
+## OutOfMemory 异常验证
+
+### 1. Java 堆溢出
+
+首先，我们需要控制变量，调整运行程序的 VM 参数
+
+![image-20220525223309265](https://cdn.jsdelivr.net/gh/WalterXiong/typora-img/img/202205252233378.png)
+
+`-Xms20m `
+
+`-Xmx20m `
+
+`-XX:+HeapDumpOnOutOfMemoryError`
+
+
+
+接下来我们通过以下代码
+
+```java
+package com.xj.java;
+
+import java.util.*;
+
+public class HeapOOM {
+
+    static class OOMObject{
+    }
+
+    public static void main(String[] args) {
+
+        List<OOMObject> list = new ArrayList<>();
+
+        while (true) {
+            list.add(new OOMObject());
+        }
+    }
+}
+```
+
+![image-20220525223548183](https://cdn.jsdelivr.net/gh/WalterXiong/typora-img/img/202205252235291.png)
+
+
+
+### 2. 虚拟机栈和本地方法栈溢出
+
+```java
+package com.xj.java;
+
+public class JavaVMStackSOF {
+
+    private int stackLength = 1;
+
+    private void stackLeak() {
+        stackLength++;
+        stackLeak();
+    }
+
+    public static void main(String[] args) {
+
+        JavaVMStackSOF sof = new JavaVMStackSOF();
+
+        try {
+            sof.stackLeak();
+        } catch (Throwable e) {
+            System.out.println("stack length : " + sof.stackLength);
+            throw e;
+        }
+    }
+}
+
+```
+
+![image-20220525232631904](https://cdn.jsdelivr.net/gh/WalterXiong/typora-img/img/202205252326003.png)
