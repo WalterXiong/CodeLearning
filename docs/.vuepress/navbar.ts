@@ -18,25 +18,12 @@ export default navbar([
   {
     text: "软件教程",
     icon: "software",
-    prefix: "softwareshare/",
+    prefix: "/softwareshare/",
     children: [
       // 暂时还没有随笔 不知道写啥
-      {
-        text: "文章 1-5",
-        icon: "edit",
-        prefix: "article/",
-        children: [
-          { text: "文章 1", icon: "edit", link: "article1" },
-          //"article4",
-        ],
-      },
-      {
-        text: "文章 6-10",
-        icon: "edit",
-        children: [
-          { text: "文章 6", icon: "edit", link: "article/article5", },
-        ],
-      },
+      { text: "Git", icon: "edit", link: "git" },
+      { text: "NPM", icon: "edit", link: "npm" },
+      //"article4",
     ]
   },
 
