@@ -68,6 +68,8 @@ program counter register，
   - 因为 Java 堆内存中内存分配不是连续的，存在内存碎片，所以虚拟机自己会维护一张内存空间地址和对象的表，在分配内存的时候需要从内存中调一块空闲的内存空间分配给对应的对象，然后自己在维护更新这张地址表，所以叫空闲列表。
   - 搭载该分配算法的垃圾回收器：`CMS`。
 
+==// todo 这里还没写（TLAB）==
+
 #### step3：初始化零值
 
 分配到合适的内存空间之后，虚拟必须将分配到的内存空间（但不包括对象头）进行初始化零值，这一步的操作保证对象的实例字段在 Java 代码中可以不赋初始值就可以直接使用，保证程序代码能够直接访问到这些字段的数据类型对应的零值。
@@ -91,9 +93,13 @@ HotSpot 中对象头主要包含两类数据：
 - 第一类是：==**对象自身的运行时数据**==，
 - 另一类是：==**类型指针**==，
 
+==// todo 这里还没写==
+
 
 
 ### 3. 对象的访问定位
+
+==// todo 这里还没写==
 
 
 
@@ -155,7 +161,7 @@ public class HeapOOM {
 
 《Java 虚拟机规范》中明确允许 Java 虚拟机自行选择是否实现栈内存自动扩展，但是 HotSpot 虚拟机的选择是不支持扩展，所以除非虚拟机在创建线程时因为申请不到足够的内存而出现 OutOfMemoryError，否则在线程的运行期间是不会因为内存扩展而出现内存溢出的，只会因为栈容量中无法容纳新的栈帧而导致 Stackoverflow 异常。
 
-为此我们可以验证一下上面的结论的真实性。我们先使用单线程的形式，来实验一下是否会让 HotSpot 产生 OutOfMeoryError ；
+为此我们可以验证一下上面的结论的真实性。我们先使用单线程的形式，来实验一下是否会让 HotSpot 产生 OutOfMemoryError ；
 
 - 使用 `-Xss` 参数限制栈内存的容量，使栈的深度达到可申请栈的深度的最大值，抛出 StackoverflowError 异常，我们同时打印一下堆栈的深度；
 - 同上的条件限制栈容量的同时，增大此方法帧中局部变量表的长度，抛出 StackoverflowError 异常，我们同时打印一下堆栈的深度；
@@ -255,7 +261,6 @@ public class JavaVMStackSOF_StackFrameCapacity {
     }
 
     public static void main(String[] args) {
-
         try {
             stackLeak();
         } catch (Error e) {
@@ -271,9 +276,7 @@ public class JavaVMStackSOF_StackFrameCapacity {
 
 从上面结果可以看出，无论是栈帧过大或者是栈内存太小，当新的栈帧无法分配内存的时候，HotSpot 都会抛出 Stackoverflow 异常。
 
-
-
-### 3.创建线程导致内存溢出异常
+**特殊**：创建线程导致内存溢出异常
 
 ```java
 /**
@@ -308,3 +311,87 @@ public class JavaVMStackOOM {
 >
 > 还有就是，我在 64 位的操作系统上执行了代码但是知道电脑芜湖~起飞到死机，我任然没有看到虚拟机抛出 OutOfMemoryError 异常，不知道是不是哪里出错了，有待后续装一个 32 位的操作系统再来验证（先挖个坑🤔😏）
 
+
+
+### 3.方法区（元空间）和运行时常量池溢出
+
+由于运行时常量池是方法区的一部分，所以这两个区域可以放到一起来验证，并且我们可以一并验证：JDK 7 开始的去永久带计划，在 JDK 8 完成，使用元空间代替了之前版本的永久带作为方法区的实现
+
+```java
+/**
+ * JDK6: VM Args: -XX:PermSize=6M -XX:MaxPermSize=6M
+ * JDK8: VM Args: -Xmx6M -Xms6M
+ */
+public class RuntimeConstantPoolOOM {
+  
+    public static void main(String[] args) {
+      
+        Set<String> set = new HashSet<>();
+      
+        short i = 0;
+      
+        while (true) {
+            set.add(String.valueOf(i++).intern());
+        }
+    }
+}
+```
+
+![image-20220606213410321](https://cdn.jsdelivr.net/gh/WalterXiong/typora-img/img/202206062134511.png)
+
+出现上述原因是因为自 JDK 7 开始原本位于方法区中的字符床常量池是被移到放到了堆中，所以限制堆大小往常量池中不断的添加常量会造成常量池内存溢出；
+
+关于字符串常量池的实现出现的问题，我们还能引申出一些更有趣的影响，如下：
+
+```java
+public class RuntimeConstantPoolOOM {
+    
+    public static void main(String[] args) {
+
+        String str1 = new StringBuilder("Code").append("Learning").toString();
+        System.out.println(str1.intern() == str1);
+
+        String str2 = new StringBuilder("ja").append("va").toString();
+        System.out.println(str2.intern() == str2);
+
+    }
+}
+// true
+// false
+```
+
+这里会提到 String 的 intern() 方法，该方法的作用是将字符床加入字符串常量池，在 JDK 7 之后字符床常量池存在于 Java 堆中，所以 intern() 仅仅需要记录一下某个字符串首次出现的引用即可（意思就是，在调用 intern 方法时，会先去常量池中搜索一番，如果该字符串没有在常量池中，那么就将该字符串的引用添加到常量池中，在返回该引用，这就是为什么 str1 的执行结果为 true 的原因，至于为甚么 str2 为 false 是因为，"java" 这个字符床并符合“首次出现”这个原则，之前就被加载了，至于是什么时候被加载的，[可以看下这里](https://www.zhihu.com/question/51102308/answer/124441115)
+
+
+
+### 4.本机直接内存溢出
+
+```java
+/**
+ * VM Args: -Xmx20M -XX:MaxDirectMemorySize=10M
+ * @author xiongjun
+ */
+public class DirectMemoryOOM {
+
+    private static final int _1MB = 1024 * 1024;
+
+    public static void main(String[] args) throws Exception {
+        Field field = Unsafe.class.getDeclaredField("theUnsafe");
+        field.setAccessible(true);
+        Unsafe unsafe = (Unsafe) f.get(null);
+
+        while (true) {
+            unsafe.allocateMemory(_1MB);
+        }
+    }
+}
+
+```
+
+> 直接内存溢出未验证成功，原因可能是没有获取到正确的 unsafe 对象
+
+
+
+## 小结
+
+运行时数据区的内容基本到这里就总结的差不多了，这章主要对虚拟机运行时数据区中的各个具体区域的作用，功能进行了了解，虚拟机的内存模式更清晰具像化了；然后对 Java 对象的：创建过程（类的检测加载、内存分配、初始化零值、设置对象头、执行init<>() 方法），内存布局，访问定位进了学习，最后是对各个区域进行了逐步的内存溢出测试。
