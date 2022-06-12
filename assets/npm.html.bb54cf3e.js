@@ -1,0 +1,1 @@
+import{_ as e}from"./plugin-vue_export-helper.21dcd24c.js";import{o as r,c as t}from"./app.b31e92c3.js";const o={};function n(c,m){return r(),t("p",null,"\u6DD8\u5B9D\u955C\u50CF\uFF1Anpm config set registry https://registry.npm.taobao.org")}var a=e(o,[["render",n],["__file","npm.html.vue"]]);export{a as default};
