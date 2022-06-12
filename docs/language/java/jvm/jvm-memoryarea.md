@@ -315,7 +315,7 @@ public class JavaVMStackOOM {
 
 ### 3.方法区（元空间）和运行时常量池溢出
 
-由于运行时常量池是方法区的一部分，所以这两个区域可以放到一起来验证，并且我们可以一并验证：JDK 7 开始的去永久带计划，在 JDK 8 完成，使用元空间代替了之前版本的永久带作为方法区的实现
+由于运行时常量池是方法区的一部分，所以这两个区域可以放到一起来验证，并且我们可以一并验证：`JDK 7` 开始的去永久带计划，在 `JDK 8` 完成，使用元空间代替了之前版本的永久带作为方法区的实现，看看字符串常量池是不是移到了堆中
 
 ```java
 /**
@@ -339,7 +339,7 @@ public class RuntimeConstantPoolOOM {
 
 ![image-20220606213410321](https://cdn.jsdelivr.net/gh/WalterXiong/typora-img/img/202206062134511.png)
 
-出现上述原因是因为自 JDK 7 开始原本位于方法区中的字符床常量池是被移到放到了堆中，所以限制堆大小往常量池中不断的添加常量会造成常量池内存溢出；
+出现上述原因是因为自 `JDK 7` 开始原本位于方法区中的字符床常量池是被移到放到了堆中，所以限制堆大小往常量池中不断的添加常量会造成常量池内存溢出；
 
 关于字符串常量池的实现出现的问题，我们还能引申出一些更有趣的影响，如下：
 
@@ -366,9 +366,11 @@ public class RuntimeConstantPoolOOM {
 
 ### 4.本机直接内存溢出
 
+
+
 ```java
 /**
- * VM Args: -Xmx20M -XX:MaxDirectMemorySize=10M
+ * VM Args: -Xmx5M -XX:MaxDirectMemorySize=1M
  * @author xiongjun
  */
 public class DirectMemoryOOM {
@@ -388,7 +390,7 @@ public class DirectMemoryOOM {
 
 ```
 
-> 直接内存溢出未验证成功，原因可能是没有获取到正确的 unsafe 对象
+![](https://cdn.jsdelivr.net/gh/WalterXiong/typora-img/img/LZTGD4V$EY1X34T$33M~J44.png)
 
 
 
