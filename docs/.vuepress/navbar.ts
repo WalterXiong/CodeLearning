@@ -23,6 +23,7 @@ export default navbar([
       // 暂时还没有随笔 不知道写啥
       { text: "Git", icon: "edit", link: "git" },
       { text: "NPM", icon: "edit", link: "npm" },
+      { text: "CMD", icon: "edit", link: "cmd" },
       //"article4",
     ]
   },
