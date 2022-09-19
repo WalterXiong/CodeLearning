@@ -29,7 +29,7 @@ export default sidebar({
           icon: "box",
           prefix: "collection/",
           collapsable: true,
-          children: "structure",
+          children: ["HashMap"],
         },
         {
           text: "并发",
