@@ -59,7 +59,7 @@ export default sidebar({
       icon: "mesh",
       prefix: "csharp/",
       collapsable: true,
-      children: []
+      children: ["BasicDefinitionAndOperator", "ExpressionAndStatement"]
     },
   ],
 

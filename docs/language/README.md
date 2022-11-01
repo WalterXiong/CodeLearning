@@ -8,13 +8,19 @@ original: isOriginal
 
 Hello 这里面存放一些 语言学习的笔记
 
-## Java 喝杯咖啡，休息一下~
-- [基础]() <Badge type="tip" text="v2" vertical="top" />
-- [集合]()
+## Java 你发任你发，我__________ !
+- [基础](./java/basis/语法基础.md) 
+- [集合](./)
+  - [HashMap](./java/collection/HashMap.md) <Badge type="tip" text="new" vertical="top" />
 - [并发]()
 - [JVM]()
 - [新特性]()
 
-## C# 这高低不整个语法糖说得过去？
+> 还在学习中，后面会陆续更新 Loading...
+
+## C# 我寻思我也妹用语法糖啊！
+
+- [C#-基本定义，操作符](./csharp/BasicDefinitionAndOperator.md) <Badge type="tip" text="new" vertical="top" />
+- [C#-表达式，语句]()
 
 > 还在学习中，后面会陆续更新 Loading...
