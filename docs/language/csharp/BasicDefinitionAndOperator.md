@@ -26,18 +26,13 @@ original: isOriginal
 - 注释与空白
 
 
-
 见名知意：
 
 - 类名：一定要是个名词或者名词的复数形式
 
 - 类的成员：同类名
 
-- 类的方法：动词或者动词短语 
-
-
-
-
+- 类的方法：动词或者动词短语
 
 ## C# 的五大数据类型
 
@@ -46,7 +41,6 @@ original: isOriginal
 - 枚举（ Enumerations ）
 - 接口（ Interfaces ）
 - 委托（ Delegates ）
-
 
 
 ## C# 类型派生谱系
@@ -248,7 +242,7 @@ Argument（实参）
 
 ### 1. 操作符概览
 
-![image-20221024204209365](C:\Users\xiong\AppData\Roaming\Typora\typora-user-images\image-20221024204209365.png)
+![image-20221024204209365](https://cdn.jsdelivr.net/gh/WalterXiong/typora-img/img/202211022109977.png)
 
 **赋值运算符先运算右边的表达式后运行左边的表达式**
 
@@ -270,7 +264,13 @@ Argument（实参）
     - 引用类型的默认值为 null；
     - 枚举类型的默认值为 枚举中定义的第一个值（在枚举值自身被赋值的情况下默认值为值等于 0 的那个枚举值，否则为 0）。
 
-- new ：创建实例操作符
+    ```c#
+    var x = default(Int32);
+    Console.WriteLine(x); // 0
+    Console.WriteLine(x.GetType().FullName); // System.Int32
+    ```
+
+- new ：创建实例操作符 
 
     - new 还能调用类的初始化器，在调用构造器之后直接初始化属性；
     - var（variable） ：隐式类型的变量（就是没有告诉编译器该变量明确的数据类型的变量）们需要编译器来推断数据类型的变量；
@@ -377,7 +377,7 @@ Argument（实参）
 
         - 不丢失精度的转换
 
-            ![image-20221027221530678](C:\Users\xiong\AppData\Roaming\Typora\typora-user-images\image-20221027221530678.png)
+            ![image-20221027221530678](https://cdn.jsdelivr.net/gh/WalterXiong/typora-img/img/202211022111194.png)
 
         - 子类向父类的转换（多态）；一个引用类型的变量去访问一个引用类型的实例的时候，他只能访问这个变量自己的类型中的成员；
 
@@ -387,7 +387,7 @@ Argument（实参）
 
         - 可能会丢失精度（会发生错误）的类型转换，即 cast
 
-            ![image-20221027222908081](C:\Users\xiong\AppData\Roaming\Typora\typora-user-images\image-20221027222908081.png)
+            ![image-20221027222908081](https://cdn.jsdelivr.net/gh/WalterXiong/typora-img/img/202211022111893.png)
 
         - 拆箱
 
