@@ -4,6 +4,8 @@ date: 2020-06-01
 original: isOriginal
 ---
 
-# Java 学习笔记
+# Code 学习笔记
 
-## 这里存放的是 Java 的学习笔记
+- Java
+- C#
+- 一些常用的编程工具和命令
