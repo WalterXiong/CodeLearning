@@ -29,21 +29,30 @@ export default sidebar({
           icon: "box",
           prefix: "collection/",
           collapsable: true,
-          children: ["HashMap"],
+          children: [
+            "Collection", 
+            "HashMap"
+          ],
         },
         {
           text: "并发",
           icon: "asynchronous",
           prefix: "concurrent/",
           collapsable: true,
-          children: "structure",
+          children: [
+            "线程安全与锁优化",
+            "线程安全与锁优化 - Synchronized 原理剖析"
+          ],
         },
         {
           text: "JVM",
           icon: "back-stage",
           prefix: "jvm/",
           collapsable: true,
-          children: ["jvm-memoryarea", "jvm-gcandmemoryallocationstrategy"],
+          children: [
+            "jvm-memoryarea", 
+            "jvm-gcandmemoryallocationstrategy"
+          ],
         },
         {
           text: "新特性",
@@ -59,7 +68,10 @@ export default sidebar({
       icon: "mesh",
       prefix: "csharp/",
       collapsable: true,
-      children: ["BasicDefinitionAndOperator", "ExpressionAndStatement"]
+      children: [
+        "BasicDefinitionAndOperator", 
+        "ExpressionAndStatement"
+      ]
     },
   ],
 
