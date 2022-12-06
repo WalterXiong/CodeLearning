@@ -1,1 +1,0 @@
-import{_ as e}from"./plugin-vue_export-helper.21dcd24c.js";import{o as r,c as t,b as c,a}from"./app.a3cd2163.js";const n={},o={id:"concurrent",tabindex:"-1"},s=a("a",{class:"header-anchor",href:"#concurrent","aria-hidden":"true"},"#",-1);function _(d,i){return r(),t("h1",o,[s,c(" concurrent")])}var l=e(n,[["render",_],["__file","index.html.vue"]]);export{l as default};
