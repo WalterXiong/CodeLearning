@@ -55,19 +55,6 @@ export default sidebar({
           ],
         },
         {
-          text: "框架",
-          icon: "back-stage",
-          prefix: "frame/",
-          collapsable: true,
-          children: [
-            "【1】Spring - IoC", 
-            "【2】Spring - AoP",
-            "【3】Spring - MVC", 
-            "【4】Spring - 事务", 
-            "【6】SpringBoot - 自动装配原理详解"
-          ],
-        },
-        {
           text: "新特性",
           icon: "preview",
           prefix: "newfeatures/",
@@ -85,6 +72,30 @@ export default sidebar({
         "BasicDefinitionAndOperator", 
         "ExpressionAndStatement"
       ]
+    },
+  ],
+
+  '/frame/': [
+    {
+      text: "目录介绍",        // 必要的，分组的标题文字
+      icon: "creative",       // 可选的, 分组标题对应的图标
+      prefix: "/frame/",      // 可选的，会添加到每个 item 链接地址之前
+      link: "/frame/",        // 可选的, 分组标题对应的链接
+      collapsable: false,     // 可选的，分组标题是否可以折叠
+      children: [],           // 必要的，分组的子项目
+    },
+    {
+      text: "Spring框架",
+      icon: "Spring",
+      prefix: "Spring&SpringBoot/",
+      collapsable: true,
+      children: [
+        "Spring-IoC", 
+        "Spring-AoP",
+        "Spring-MVC", 
+        "Spring-事务", 
+        "SpringBoot-自动装配原理详解"
+      ],
     },
   ],
 
