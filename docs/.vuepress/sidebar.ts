@@ -55,6 +55,19 @@ export default sidebar({
           ],
         },
         {
+          text: "框架",
+          icon: "back-stage",
+          prefix: "frame/",
+          collapsable: true,
+          children: [
+            "【1】Spring - IoC", 
+            "【2】Spring - AoP",
+            "【3】Spring - MVC", 
+            "【4】Spring - 事务", 
+            "【6】SpringBoot - 自动装配原理详解"
+          ],
+        },
+        {
           text: "新特性",
           icon: "preview",
           prefix: "newfeatures/",
