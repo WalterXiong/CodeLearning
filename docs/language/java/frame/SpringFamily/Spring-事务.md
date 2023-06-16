@@ -362,7 +362,7 @@ public interface TransactionDefinition {
 
 这些规则定义了哪些异常会导致事务回滚而哪些不会。默认情况下，事务只有遇到运行期异常（`RuntimeException` 的子类）时才会回滚，`Error` 也会导致事务回滚，但是，在遇到检查型（Checked）异常时不会回滚。
 
-![img](assets/roollbackFor.14ef1320.png)
+![img](https://cdn.jsdelivr.net/gh/WalterXiong/typora-img/img/202306160929083.png)
 
 如果你想要回滚你定义的特定的异常类型的话，可以这样：
 
