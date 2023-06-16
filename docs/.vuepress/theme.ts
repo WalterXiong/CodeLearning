@@ -99,7 +99,6 @@ export default hopeTheme({
 
     // md 增强配置
     mdEnhance: {
-      enableAll: true,
       presentation: {
         plugins: ["highlight", "math", "search", "notes", "zoom"],
       },

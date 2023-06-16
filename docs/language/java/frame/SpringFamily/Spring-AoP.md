@@ -87,7 +87,7 @@ public class LoggingAspect implements Ordered {
 
 - 每个通知不需要实现接口或类
 
-- 配置 spring 配置文件时在<aop : config> 的子标签 <aop : aspect>中配置
+- 配置 spring 配置文件时在< aop:config > 的子标签 < aop:aspect >中配置
 
 首次有 UserService 接口和 UserServiceImpl 实现类，模拟实际开发场景
 

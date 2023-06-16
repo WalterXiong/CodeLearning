@@ -9,10 +9,10 @@ export default navbar([
   //{ text: "主页", icon: "home", link: "/home", },
 
   // 代码笔记
-  { text: "代码笔记", icon: "code", link: "/language/", },
+  { text: "代码笔记", icon: "code", link: "/language", },
   
   // 随笔
-  { text: "随笔", icon: "edit", link: "/essay/", },
+  { text: "随笔", icon: "edit", link: "/essay", },
 
   // 软件教程
   {
